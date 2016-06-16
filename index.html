@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<meta charset="utf-8">
+	<script src="http://d3js.org/d3.v3.min.js"></script>
+	<script src="colorpicker/jscolor.js"></script>
+	<style>
+
+	svg {
+	  font: 11px sans-serif;
+	  pointer-events: none;
+	}
+
+	.axis {
+	  shape-rendering: crispEdges;
+	}
+
+	.axis path, .axis line {
+	  fill: none;
+	  stroke-width: 1px;
+	}
+
+	.x.axis path {
+	  stroke: #fff;
+	}
+
+	.x.axis line {
+	  stroke: #fff;
+	  stroke-opacity: 0;
+	}
+
+	.y.axis line {
+	  stroke: #000;
+	  stroke-opacity: 0.2;
+	}
+
+	path.line {
+	  fill: none;
+	  stroke: #000;
+	  stroke-width: .5px;
+	  pointer-events: none;
+	}
+
+	rect.pane {
+	  cursor: none;
+	  fill: none;
+	  pointer-events: all;
+	}
+
+	line.mouse {
+	  stroke: #00f;
+	  stroke-width: 0.5px;
+	  stroke-dasharray: 3,2;
+	  pointer-events: none;
+	  shape-rendering: geometricPrecision;
+	}
+
+	#tooltip {
+		font-family: sans-serif;
+		font-size: 13px;
+		color: #595959;
+	}
+	#tooltip .green {
+		color: rgb(107, 165, 131);
+	}
+	#tooltip .red {
+		color: rgb(215, 84, 66);
+	}
+
+	</style>
+<body>
+	<script type="text/javascript" src="script.js"></script>
+	<div id="main_chart"></div>
+	<div>	
+		<select name="type">
+			<option value="ma">Moving Average</option>
+			<option value="ema">Exponential Moving Average</option>
+		</select>
+		<input type="text" name="period" style="width: 30px;" value="5" />
+		<input type="text" name="color" class="color {hash:true}" value="#3A85AD" />
+		<select name="width">
+			<option value="1">1 px</option>
+			<option value="2">2 px</option>
+			<option value="3">3 px</option>
+			<option value="4">4 px</option>
+			<option value="5">5 px</option>
+		</select>
+		<button class="add_indicator">Add</button>
+	</div>
+	<div>
+		<button class="new_data">Load new data</button>
+	</div>
+
+	<div id="tooltip" style="height: 30px;"></div>
+</body>
+</html>
